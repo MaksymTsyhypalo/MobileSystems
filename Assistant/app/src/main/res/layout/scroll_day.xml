@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1. 01. 2026 - Monday"
+        android:textColor="#4CAF50"
+        android:textSize="34sp"
+        android:textStyle="bold|italic"
+        tools:layout_editor_absoluteX="46dp"
+        tools:layout_editor_absoluteY="42dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TASK LIST"
+        android:textColor="#4CAF50"
+        android:textSize="16sp"
+        android:textStyle="bold|italic"
+        tools:layout_editor_absoluteX="46dp"
+        tools:layout_editor_absoluteY="127dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#4CAF50"
+        android:text="GO TO THE WEEK VIEW"
+        android:textStyle="bold|italic"
+        tools:layout_editor_absoluteX="106dp"
+        tools:layout_editor_absoluteY="667dp" />
+
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#4CAF50"
+        android:text="ADD (+)"
+        android:textStyle="bold|italic"
+        tools:layout_editor_absoluteX="127dp"
+        tools:layout_editor_absoluteY="477dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="63dp"
+        android:layout_height="122dp"
+        app:srcCompat="@drawable/scroll_task"
+        tools:layout_editor_absoluteX="46dp"
+        tools:layout_editor_absoluteY="168dp" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="63dp"
+        android:layout_height="122dp"
+        app:srcCompat="@drawable/scroll_task"
+        tools:layout_editor_absoluteX="46dp"
+        tools:layout_editor_absoluteY="304dp" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="63dp"
+        android:layout_height="122dp"
+        app:srcCompat="@drawable/scroll_task"
+        tools:layout_editor_absoluteX="46dp"
+        tools:layout_editor_absoluteY="444dp" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="300dp"
+        android:layout_height="2dp"
+        app:cardBackgroundColor="#060B00"
+        app:cardElevation="5dp"
+        tools:layout_editor_absoluteX="109dp"
+        tools:layout_editor_absoluteY="168dp" >
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#4CAF50"
+        android:text="EDIT"
+        android:textColor="#F5F6F3"
+        android:textStyle="bold|italic"
+        tools:layout_editor_absoluteX="127dp"
+        tools:layout_editor_absoluteY="211dp" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#4CAF50"
+        android:text="GET REWARD"
+        android:textColor="#F5F6F3"
+        android:textStyle="bold|italic"
+        tools:layout_editor_absoluteX="257dp"
+        tools:layout_editor_absoluteY="211dp" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#4CAF50"
+        android:text="GET REWARD"
+        android:textColor="#F5F6F3"
+        android:textStyle="bold|italic"
+        tools:layout_editor_absoluteX="257dp"
+        tools:layout_editor_absoluteY="341dp" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#4CAF50"
+        android:text="EDIT"
+        android:textColor="#F5F6F3"
+        android:textStyle="bold|italic"
+        tools:layout_editor_absoluteX="127dp"
+        tools:layout_editor_absoluteY="341dp" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="300dp"
+        android:layout_height="2dp"
+        app:cardBackgroundColor="#060B00"
+        app:cardElevation="5dp"
+        tools:layout_editor_absoluteX="113dp"
+        tools:layout_editor_absoluteY="305dp" >
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="300dp"
+        android:layout_height="2dp"
+        app:cardBackgroundColor="#060B00"
+        app:cardElevation="5dp"
+        tools:layout_editor_absoluteX="111dp"
+        tools:layout_editor_absoluteY="446dp" >
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="300dp"
+        android:layout_height="2dp"
+        app:cardBackgroundColor="#060B00"
+        app:cardElevation="5dp"
+        tools:layout_editor_absoluteX="113dp"
+        tools:layout_editor_absoluteY="561dp" >
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="300dp"
+        android:layout_height="2dp"
+        app:cardBackgroundColor="#060B00"
+        app:cardElevation="5dp"
+        tools:layout_editor_absoluteX="113dp"
+        tools:layout_editor_absoluteY="425dp" >
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="300dp"
+        android:layout_height="2dp"
+        app:cardBackgroundColor="#060B00"
+        app:cardElevation="5dp"
+        tools:layout_editor_absoluteX="109dp"
+        tools:layout_editor_absoluteY="287dp" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="15dp"
+        android:layout_height="600dp"
+        app:cardBackgroundColor="#65AD0F"
+        app:cardElevation="5dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="115dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
