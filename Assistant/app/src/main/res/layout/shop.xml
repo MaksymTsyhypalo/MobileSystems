@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/blackline"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="298dp" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/blackline"
+        tools:layout_editor_absoluteX="31dp"
+        tools:layout_editor_absoluteY="364dp" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/blackline"
+        tools:layout_editor_absoluteX="31dp"
+        tools:layout_editor_absoluteY="423dp" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/blackline"
+        tools:layout_editor_absoluteX="31dp"
+        tools:layout_editor_absoluteY="480dp" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/blackline"
+        tools:layout_editor_absoluteX="31dp"
+        tools:layout_editor_absoluteY="555dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#4CAF50"
+        android:text="WEEK VIEW"
+        android:textStyle="bold|italic"
+        tools:layout_editor_absoluteX="144dp"
+        tools:layout_editor_absoluteY="667dp" />
+
+    <Button
+        android:id="@+id/button16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#4CAF50"
+        android:text="GARDEN"
+        android:textSize="34sp"
+        android:textStyle="bold|italic"
+        tools:layout_editor_absoluteX="116dp"
+        tools:layout_editor_absoluteY="602dp" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#4CAF50"
+        android:text="BUY"
+        android:textColor="#F5F6F3"
+        android:textStyle="bold|italic"
+        tools:layout_editor_absoluteX="56dp"
+        tools:layout_editor_absoluteY="250dp" />
+
+    <Button
+        android:id="@+id/button15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#4CAF50"
+        android:text="BUY"
+        android:textColor="#F5F6F3"
+        android:textStyle="bold|italic"
+        tools:layout_editor_absoluteX="56dp"
+        tools:layout_editor_absoluteY="186dp" />
+
+    <Button
+        android:id="@+id/button11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#4CAF50"
+        android:text="BUY"
+        android:textColor="#F5F6F3"
+        android:textStyle="bold|italic"
+        tools:layout_editor_absoluteX="56dp"
+        tools:layout_editor_absoluteY="318dp" />
+
+    <Button
+        android:id="@+id/button12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#4CAF50"
+        android:text="BUY"
+        android:textColor="#F5F6F3"
+        android:textStyle="bold|italic"
+        tools:layout_editor_absoluteX="56dp"
+        tools:layout_editor_absoluteY="384dp" />
+
+    <Button
+        android:id="@+id/button13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#4CAF50"
+        android:text="BUY"
+        android:textColor="#F5F6F3"
+        android:textStyle="bold|italic"
+        tools:layout_editor_absoluteX="56dp"
+        tools:layout_editor_absoluteY="443dp" />
+
+    <Button
+        android:id="@+id/button14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#4CAF50"
+        android:text="BUY"
+        android:textColor="#F5F6F3"
+        android:textStyle="bold|italic"
+        tools:layout_editor_absoluteX="56dp"
+        tools:layout_editor_absoluteY="507dp" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="15dp"
+        android:layout_height="600dp"
+        app:cardBackgroundColor="#65AD0F"
+        app:cardElevation="5dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="115dp">
+
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/blackline"
+        tools:layout_editor_absoluteX="31dp"
+        tools:layout_editor_absoluteY="166dp" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/blackline"
+        tools:layout_editor_absoluteX="31dp"
+        tools:layout_editor_absoluteY="230dp" />
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="91dp"
+        android:layout_height="71dp"
+        app:srcCompat="@drawable/task_coin"
+        tools:layout_editor_absoluteX="31dp"
+        tools:layout_editor_absoluteY="30dp" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FFC107"
+        android:text="12 TASKCOINS"
+        android:textColor="#613D06"
+        tools:layout_editor_absoluteX="123dp"
+        tools:layout_editor_absoluteY="38dp" />
+
+    <Button
+        android:id="@+id/button18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FFC107"
+        android:text="15 TASKCOINS"
+        android:textColor="#613D06"
+        tools:layout_editor_absoluteX="158dp"
+        tools:layout_editor_absoluteY="186dp" />
+
+    <ImageView
+        android:id="@+id/imageView17"
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        app:srcCompat="@drawable/house"
+        tools:layout_editor_absoluteX="327dp"
+        tools:layout_editor_absoluteY="174dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

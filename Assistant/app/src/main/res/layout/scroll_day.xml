@@ -5,6 +5,46 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/imageView20"
+        android:layout_width="125dp"
+        android:layout_height="51dp"
+        app:srcCompat="@drawable/task_coins_brick"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="411dp"
+        android:layout_height="22dp"
+        app:srcCompat="@drawable/blackline"
+        tools:layout_editor_absoluteX="46dp"
+        tools:layout_editor_absoluteY="149dp" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/blackline"
+        tools:layout_editor_absoluteX="46dp"
+        tools:layout_editor_absoluteY="284dp" />
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/blackline"
+        tools:layout_editor_absoluteX="46dp"
+        tools:layout_editor_absoluteY="424dp" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/blackline"
+        tools:layout_editor_absoluteX="46dp"
+        tools:layout_editor_absoluteY="566dp" />
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -14,7 +54,7 @@
         android:textSize="34sp"
         android:textStyle="bold|italic"
         tools:layout_editor_absoluteX="46dp"
-        tools:layout_editor_absoluteY="42dp" />
+        tools:layout_editor_absoluteY="70dp" />
 
     <TextView
         android:id="@+id/textView3"
@@ -71,16 +111,6 @@
         tools:layout_editor_absoluteX="46dp"
         tools:layout_editor_absoluteY="444dp" />
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="300dp"
-        android:layout_height="2dp"
-        app:cardBackgroundColor="#060B00"
-        app:cardElevation="5dp"
-        tools:layout_editor_absoluteX="109dp"
-        tools:layout_editor_absoluteY="168dp" >
-
-    </androidx.cardview.widget.CardView>
-
     <Button
         android:id="@+id/button4"
         android:layout_width="wrap_content"
@@ -124,54 +154,6 @@
         android:textStyle="bold|italic"
         tools:layout_editor_absoluteX="127dp"
         tools:layout_editor_absoluteY="341dp" />
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="300dp"
-        android:layout_height="2dp"
-        app:cardBackgroundColor="#060B00"
-        app:cardElevation="5dp"
-        tools:layout_editor_absoluteX="113dp"
-        tools:layout_editor_absoluteY="305dp" >
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="300dp"
-        android:layout_height="2dp"
-        app:cardBackgroundColor="#060B00"
-        app:cardElevation="5dp"
-        tools:layout_editor_absoluteX="111dp"
-        tools:layout_editor_absoluteY="446dp" >
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="300dp"
-        android:layout_height="2dp"
-        app:cardBackgroundColor="#060B00"
-        app:cardElevation="5dp"
-        tools:layout_editor_absoluteX="113dp"
-        tools:layout_editor_absoluteY="561dp" >
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="300dp"
-        android:layout_height="2dp"
-        app:cardBackgroundColor="#060B00"
-        app:cardElevation="5dp"
-        tools:layout_editor_absoluteX="113dp"
-        tools:layout_editor_absoluteY="425dp" >
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="300dp"
-        android:layout_height="2dp"
-        app:cardBackgroundColor="#060B00"
-        app:cardElevation="5dp"
-        tools:layout_editor_absoluteX="109dp"
-        tools:layout_editor_absoluteY="287dp" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="15dp"
