@@ -2,9 +2,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.assistant.MainActivity">
-    <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+    <Button
+        android:id="@+id/button21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#4CAF50"
+        android:text="GO TO THE WEEK VIEW"
+        android:textStyle="bold|italic"
+        tools:layout_editor_absoluteX="106dp"
+        tools:layout_editor_absoluteY="667dp" />
+    <Button
+        android:id="@+id/button20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#4CAF50"
+        android:text="GO TO THE WEEK VIEW"
+        android:textStyle="bold|italic"
+        tools:layout_editor_absoluteX="106dp"
+        tools:layout_editor_absoluteY="667dp" />
 </menu>

@@ -1,53 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageView21"
-        android:layout_width="125dp"
-        android:layout_height="51dp"
-        app:srcCompat="@drawable/task_coins_brick"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="95dp" />
-
-    <ImageView
-        android:id="@+id/imageView15"
+    <!-- MENU button fixed top-right -->
+    <Button
+        android:id="@+id/btn_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="MENU"
+        android:backgroundTint="#37943A"
+        android:textStyle="bold|italic"
+        android:layout_margin="16dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/minigame_visualization"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#62E967"
-        android:text="SHOP"
-        android:textSize="24sp"
-        android:textStyle="bold|italic"
-        tools:layout_editor_absoluteX="284dp"
-        tools:layout_editor_absoluteY="16dp" />
-
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#62E967"
-        android:text="WEEK VIEW"
-        android:textSize="24sp"
-        android:textStyle="bold|italic"
-        tools:layout_editor_absoluteX="222dp"
-        tools:layout_editor_absoluteY="79dp" />
-
+    <!-- Small coins header (top-left) -->
     <ImageView
         android:id="@+id/imageView22"
         android:layout_width="143dp"
         android:layout_height="59dp"
-        app:srcCompat="@drawable/task_coins_brick"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="20dp" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/task_coins_brick"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Second coins row under the first (optional; keep if you want both) -->
+    <ImageView
+        android:id="@+id/imageView21"
+        android:layout_width="125dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/task_coins_brick"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView22" />
+
+    <!-- The big garden/minigame visualization fills the rest -->
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/minigame_visualization"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toBottomOf="@id/imageView21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
