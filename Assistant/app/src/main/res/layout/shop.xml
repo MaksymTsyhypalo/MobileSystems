@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- MENU -->
     <Button
         android:id="@+id/btn_menu"
         android:layout_width="wrap_content"
@@ -15,6 +16,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Header (coin + balance) -->
     <LinearLayout
         android:id="@+id/header_shop"
         android:layout_width="0dp"
@@ -42,7 +44,7 @@
             android:backgroundTint="#FFC107" />
     </LinearLayout>
 
-    <!-- Left green bar anchored to parent -->
+    <!-- Left green bar -->
     <androidx.cardview.widget.CardView
         android:id="@+id/leftBar"
         android:layout_width="15dp"
@@ -53,6 +55,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <!-- Content -->
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -65,9 +68,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="12dp">
 
-            <!-- Product rows near top -->
+            <!-- Row 1 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -100,13 +103,20 @@
                     android:backgroundTint="#4CAF50" />
             </LinearLayout>
 
-            <!-- More BUY rows -->
+            <!-- Separator -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="6dp"
+                android:background="#FF000000" />
+
+            <!-- Row 2 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:layout_marginTop="12dp">
+                android:layout_marginTop="10dp">
 
                 <Button
                     android:id="@+id/button11"
@@ -117,12 +127,15 @@
                     android:backgroundTint="#4CAF50" />
             </LinearLayout>
 
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginTop="6dp" android:background="#FF000000" />
+
+            <!-- Row 3 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:layout_marginTop="12dp">
+                android:layout_marginTop="10dp">
 
                 <Button
                     android:id="@+id/button12"
@@ -132,6 +145,27 @@
                     android:textColor="#F5F6F3"
                     android:backgroundTint="#4CAF50" />
             </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginTop="6dp" android:background="#FF000000" />
+
+            <!-- Row 4 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp">
+
+                <Button
+                    android:id="@+id/button13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BUY"
+                    android:textColor="#F5F6F3"
+                    android:backgroundTint="#4CAF50" />
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginTop="6dp" android:background="#FF000000" />
 
         </LinearLayout>
     </ScrollView>

@@ -35,7 +35,7 @@
             android:src="@drawable/task_coins_brick" />
     </LinearLayout>
 
-    <!-- Left vertical green bar (not in the scroll stack, so it doesn't push content down) -->
+    <!-- Left vertical green bar (fixed to parent) -->
     <androidx.cardview.widget.CardView
         android:id="@+id/leftBar"
         android:layout_width="15dp"
@@ -46,7 +46,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Content list starts immediately under header -->
+    <!-- Content under header -->
     <ScrollView
         android:id="@+id/scroll"
         android:layout_width="0dp"
@@ -60,8 +60,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="12dp">
 
+            <!-- Title -->
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
@@ -81,7 +82,14 @@
                 android:textStyle="bold|italic"
                 android:layout_marginTop="4dp" />
 
-            <!-- Row 1 -->
+            <!-- Separator -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="6dp"
+                android:background="#FF000000" />
+
+            <!-- ===== Block 1 ===== -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -122,13 +130,20 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- Row 2 -->
+            <!-- Separator -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="6dp"
+                android:background="#FF000000" />
+
+            <!-- ===== Block 2 ===== -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:layout_marginTop="12dp">
+                android:layout_marginTop="8dp">
 
                 <ImageView
                     android:layout_width="63dp"
@@ -163,15 +178,51 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- Add (+) -->
-            <Button
-                android:id="@+id/button10"
-                android:layout_width="wrap_content"
+            <!-- Separator -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="6dp"
+                android:background="#FF000000" />
+
+            <!-- ===== Block 3 — ADD (+) as a full block ===== -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="ADD (+)"
-                android:textStyle="bold|italic"
-                android:layout_marginTop="16dp"
-                android:backgroundTint="#4CAF50" />
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
+
+                <!-- keep the same left image so alignment matches -->
+                <ImageView
+                    android:layout_width="63dp"
+                    android:layout_height="122dp"
+                    android:src="@drawable/scroll_task" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="end"
+                    android:layout_marginStart="16dp">
+
+                    <Button
+                        android:id="@+id/button10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ADD (+)"
+                        android:textStyle="bold|italic"
+                        android:backgroundTint="#4CAF50" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Final separator -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#FF000000" />
 
         </LinearLayout>
     </ScrollView>

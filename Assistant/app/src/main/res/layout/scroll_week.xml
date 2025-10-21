@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- MENU -->
     <Button
         android:id="@+id/btn_menu"
         android:layout_width="wrap_content"
@@ -15,6 +16,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Header (coins) -->
     <LinearLayout
         android:id="@+id/header_week"
         android:layout_width="0dp"
@@ -33,7 +35,7 @@
             android:src="@drawable/task_coins_brick" />
     </LinearLayout>
 
-    <!-- Left green bar anchored to parent -->
+    <!-- Left green bar -->
     <androidx.cardview.widget.CardView
         android:id="@+id/leftBar"
         android:layout_width="15dp"
@@ -44,6 +46,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <!-- Content -->
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -67,59 +70,147 @@
                 android:textSize="34sp"
                 android:textStyle="bold|italic" />
 
-            <!-- Row template -->
+            <!-- Separator -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="#FF000000" />
+
+            <!-- Reusable row style: an EDIT button aligned left -->
+            <!-- Day 1 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:layout_marginTop="12dp">
+                android:layout_marginTop="10dp">
 
                 <Button
-                    android:id="@+id/button15"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="EDIT"
-                    android:textColor="#F5F6F3"
-                    android:backgroundTint="#4CAF50" />
-
-                <Space android:layout_width="12dp" android:layout_height="1dp" />
-
-                <Button
-                    android:id="@+id/button17"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="GET REWARD"
-                    android:textColor="#F5F6F3"
-                    android:backgroundTint="#4CAF50" />
-            </LinearLayout>
-
-            <!-- Add additional rows as needed -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:layout_marginTop="12dp">
-
-                <Button
-                    android:id="@+id/button11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="EDIT"
-                    android:textColor="#F5F6F3"
-                    android:backgroundTint="#4CAF50" />
-
-                <Space android:layout_width="12dp" android:layout_height="1dp" />
-
-                <Button
-                    android:id="@+id/button7"
+                    android:id="@+id/day1_edit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="EDIT"
                     android:textColor="#F5F6F3"
                     android:backgroundTint="#4CAF50" />
             </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginTop="6dp" android:background="#FF000000"/>
+
+            <!-- Day 2 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp">
+
+                <Button
+                    android:id="@+id/day2_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="EDIT"
+                    android:textColor="#F5F6F3"
+                    android:backgroundTint="#4CAF50" />
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginTop="6dp" android:background="#FF000000"/>
+
+            <!-- Day 3 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp">
+
+                <Button
+                    android:id="@+id/day3_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="EDIT"
+                    android:textColor="#F5F6F3"
+                    android:backgroundTint="#4CAF50" />
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginTop="6dp" android:background="#FF000000"/>
+
+            <!-- Day 4 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp">
+
+                <Button
+                    android:id="@+id/day4_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="EDIT"
+                    android:textColor="#F5F6F3"
+                    android:backgroundTint="#4CAF50" />
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginTop="6dp" android:background="#FF000000"/>
+
+            <!-- Day 5 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp">
+
+                <Button
+                    android:id="@+id/day5_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="EDIT"
+                    android:textColor="#F5F6F3"
+                    android:backgroundTint="#4CAF50" />
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginTop="6dp" android:background="#FF000000"/>
+
+            <!-- Day 6 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp">
+
+                <Button
+                    android:id="@+id/day6_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="EDIT"
+                    android:textColor="#F5F6F3"
+                    android:backgroundTint="#4CAF50" />
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginTop="6dp" android:background="#FF000000"/>
+
+            <!-- Day 7 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+
+                <Button
+                    android:id="@+id/day7_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="EDIT"
+                    android:textColor="#F5F6F3"
+                    android:backgroundTint="#4CAF50" />
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#FF000000"/>
 
         </LinearLayout>
     </ScrollView>
