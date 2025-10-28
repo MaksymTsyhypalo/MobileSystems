@@ -13,5 +13,7 @@ class ScrollDayActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btn_menu).setOnClickListener {
             startActivity(Intent(this, MenuActivity::class.java))
         }
+        findViewById<Button>(R.id.button5).setOnClickListener{ startActivity(Intent(this, ScrollTaskActivity::class.java)) }
+        findViewById<Button>(R.id.button8).setOnClickListener{ startActivity(Intent(this, ScrollTaskActivity::class.java)) }
     }
 }

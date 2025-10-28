@@ -13,5 +13,8 @@ class ShopActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btn_menu).setOnClickListener {
             startActivity(Intent(this, MenuActivity::class.java))
         }
+        findViewById<Button>(R.id.vb).setOnClickListener {
+            startActivity(Intent(this, GardenActivity::class.java))
+        }
     }
 }

@@ -13,5 +13,13 @@ class ScrollWeekActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btn_menu).setOnClickListener {
             startActivity(Intent(this, MenuActivity::class.java))
         }
+        findViewById<Button>(R.id.day1_edit).setOnClickListener{ startActivity(Intent(this, ScrollDayActivity::class.java)) }
+        findViewById<Button>(R.id.day2_edit).setOnClickListener{ startActivity(Intent(this, ScrollDayActivity::class.java)) }
+        findViewById<Button>(R.id.day3_edit).setOnClickListener{ startActivity(Intent(this, ScrollDayActivity::class.java)) }
+        findViewById<Button>(R.id.day4_edit).setOnClickListener{ startActivity(Intent(this, ScrollDayActivity::class.java)) }
+        findViewById<Button>(R.id.day5_edit).setOnClickListener{ startActivity(Intent(this, ScrollDayActivity::class.java)) }
+        findViewById<Button>(R.id.day6_edit).setOnClickListener{ startActivity(Intent(this, ScrollDayActivity::class.java)) }
+        findViewById<Button>(R.id.day7_edit).setOnClickListener{ startActivity(Intent(this, ScrollDayActivity::class.java)) }
+
     }
 }

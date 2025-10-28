@@ -8,10 +8,10 @@
 
     <LinearLayout
         android:id="@+id/header_task"
-        android:layout_width="196dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="92dp"
-        android:layout_marginEnd="134dp"
+        android:layout_width="195dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="95dp"
+        android:layout_marginEnd="135dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingStart="16dp"
@@ -23,15 +23,15 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:layout_width="174dp"
-            android:layout_height="51dp"
+            android:layout_width="175dp"
+            android:layout_height="50dp"
             android:src="@drawable/task_coins_brick" />
 
     </LinearLayout>
 
     <ScrollView
-        android:layout_width="416dp"
-        android:layout_height="538dp"
+        android:layout_width="415dp"
+        android:layout_height="540dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,6 +52,14 @@
                 android:textSize="34sp"
                 android:textStyle="bold|italic" />
 
+            <EditText
+                android:id="@+id/edittextdesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:text="Task Description" />
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
@@ -59,15 +67,18 @@
                 app:cardCornerRadius="24dp"
                 app:cardElevation="6dp">
 
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:text="Task Description"
-                    android:textColor="#104513"
-                    android:textSize="24sp"
-                    android:textStyle="bold|italic" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/Inpl"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:hint="Enter text">
+
+                    <EditText
+                        android:id="@+id/edit1"
+                        android:layout_width="match_parent"
+                        android:layout_height="155dp"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
             </androidx.cardview.widget.CardView>
 
             <LinearLayout
@@ -88,10 +99,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
-                    android:text="amount of task coins for this"
+                    android:text="Amount of task coins for this"
                     android:textColor="#FAF5F5"
                     android:textSize="20sp"
                     android:textStyle="bold|italic" />
+
             </LinearLayout>
 
             <CheckBox
@@ -105,6 +117,16 @@
                 android:textStyle="bold|italic" />
 
             <Button
+                android:id="@+id/button2"
+                android:layout_width="99dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#FAF4F4"
+                android:text="SAVE"
+                android:textColor="#316D34"
+                android:textStyle="bold|italic" />
+
+            <Button
                 android:id="@+id/button3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -113,6 +135,7 @@
                 android:text="GO TO THE DAY VIEW"
                 android:textColor="#316D34"
                 android:textStyle="bold|italic" />
+
         </LinearLayout>
     </ScrollView>
 
@@ -120,8 +143,8 @@
         android:id="@+id/btn_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="92dp"
-        android:layout_marginEnd="26dp"
+        android:layout_marginTop="90dp"
+        android:layout_marginEnd="25dp"
         android:backgroundTint="#37943A"
         android:text="MENU"
         android:textStyle="bold|italic"

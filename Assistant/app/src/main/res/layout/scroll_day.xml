@@ -27,7 +27,7 @@
 
         <ImageView
             android:layout_width="125dp"
-            android:layout_height="51dp"
+            android:layout_height="50dp"
             android:src="@drawable/task_coins_brick" />
 
     </LinearLayout>
@@ -58,12 +58,11 @@
             android:orientation="vertical"
             android:padding="12dp">
 
-            <!-- Title -->
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1. 01. 2026 - Monday"
+                android:text="1.01. 2026 - Monday"
                 android:textColor="#4CAF50"
                 android:textSize="34sp"
                 android:textStyle="bold|italic" />
@@ -78,14 +77,12 @@
                 android:textSize="16sp"
                 android:textStyle="bold|italic" />
 
-            <!-- Separator -->
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginTop="6dp"
                 android:background="#FF000000" />
 
-            <!-- ===== Block 1 ===== -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -93,18 +90,20 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:layout_width="63dp"
-                    android:layout_height="122dp"
-                    android:src="@drawable/scroll_task" />
-
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="356dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_weight="1"
                     android:gravity="end"
                     android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView10"
+                        android:layout_width="380dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Task Name" />
 
                     <Button
                         android:id="@+id/button4"
@@ -125,28 +124,22 @@
                         android:backgroundTint="#4CAF50"
                         android:text="GET REWARD"
                         android:textColor="#F5F6F3" />
+
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- Separator -->
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginTop="6dp"
                 android:background="#FF000000" />
 
-            <!-- ===== Block 2 ===== -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="63dp"
-                    android:layout_height="122dp"
-                    android:src="@drawable/scroll_task" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -155,6 +148,13 @@
                     android:layout_weight="1"
                     android:gravity="end"
                     android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView11"
+                        android:layout_width="380dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Task Name" />
 
                     <Button
                         android:id="@+id/button5"
@@ -178,14 +178,12 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- Separator -->
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginTop="6dp"
                 android:background="#FF000000" />
 
-            <!-- ===== Block 3 — ADD (+) as a full block ===== -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -194,12 +192,6 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
-                <!-- keep the same left image so alignment matches -->
-                <ImageView
-                    android:layout_width="63dp"
-                    android:layout_height="122dp"
-                    android:src="@drawable/scroll_task" />
-
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -207,6 +199,13 @@
                     android:layout_weight="1"
                     android:gravity="end"
                     android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView12"
+                        android:layout_width="380dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Create New Task:" />
 
                     <Button
                         android:id="@+id/button10"
@@ -218,7 +217,6 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- Final separator -->
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
