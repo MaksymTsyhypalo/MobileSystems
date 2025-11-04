@@ -11,8 +11,6 @@ class ScrollDayActivity : AppCompatActivity() {
     private lateinit var adapter: ArrayAdapter<String>
     private val items = mutableListOf<String>() // co widzisz na liście
     private val ids   = mutableListOf<Int>()    // równoległe ID do usuwania
-
-    // Na razie stały klucz dnia – możesz tu wstawić prawdziwą datę
     private val dayKey = "today"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,6 +53,34 @@ class ScrollDayActivity : AppCompatActivity() {
             Toast.makeText(this, "Deleted task #$id", Toast.LENGTH_SHORT).show()
             refreshList()
             true
+        }
+
+        //short tap
+        list.setOnItemClickListener { _, _, position, _ ->
+            val id = ids[position]
+
+
+
+            val senderSTR = items[position]
+
+            val strstart = senderSTR.indexOf(" · ") + 3
+
+            val strend = senderSTR.indexOf(" — ")
+
+            val taskTitle: String = if(strend > strstart){senderSTR.substring(strstart, strend)}
+            else {senderSTR.substring(strstart)}
+
+            val taskDesc: String = if(strend > strstart){senderSTR.substring(strstart, strend)}
+            else {senderSTR.substring(strstart)}
+
+            Toast.makeText(this, "Editing task #$id", Toast.LENGTH_SHORT).show()
+
+            val intent1 = Intent(this, ScrollTaskActivity::class.java)
+            intent1.putExtra("Task_Title", taskTitle)
+            intent1.putExtra("Task_Description", taskDesc)
+
+            refreshList()
+            startActivity(intent1)
         }
     }
 
