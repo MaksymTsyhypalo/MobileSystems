@@ -57,8 +57,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="text"
-                android:text="Task Description" />
+                android:hint="Task Title"
+                android:inputType="text" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -80,6 +80,11 @@
                         android:inputType="text" />
                 </com.google.android.material.textfield.TextInputLayout>
             </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/ErrorView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -108,7 +113,17 @@
 
             <CheckBox
                 android:id="@+id/checkBox"
-                android:layout_width="wrap_content"
+                android:layout_width="374dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Step Task?"
+                android:textColor="#F4F1F1"
+                android:textSize="24sp"
+                android:textStyle="bold|italic" />
+
+            <CheckBox
+                android:id="@+id/checkBox4"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="APPROVE TASK"
