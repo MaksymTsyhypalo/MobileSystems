@@ -27,6 +27,7 @@
         <activity android:name=".ScrollTaskActivity" />
         <activity android:name=".ShopActivity" />
         <activity android:name=".GardenActivity" />
+        <activity android:name=".StatisticsActivity" />
 
 
 

@@ -14,6 +14,7 @@ class ScrollDayActivity : AppCompatActivity() {
     private val taskTitles = mutableListOf<String>()
     private val taskDescriptions = mutableListOf<String>()
     private val dayKey = "today"
+    public var taskcount = 0;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +47,7 @@ class ScrollDayActivity : AppCompatActivity() {
             db.addTask(t, d, dayKey)
             etTitle.text.clear(); etDesc.text.clear()
             refreshList()
+            taskcount += 1;
         }
 
         // Usuwanie (long press)

@@ -6,6 +6,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
 import com.github.mikephil.charting.charts.BarChart
 
+var taskcount = ScrollDayActivity().taskcount
+
+var taskcountdoneother = taskcountdone
+
+
 class StatisticsActivity : AppCompatActivity() {
     private lateinit var barChart: BarChart
 
@@ -19,6 +24,8 @@ class StatisticsActivity : AppCompatActivity() {
         setupChartData()
     }
 
-    fun setupChartData(){}
+    fun setupChartData(){
+
+    }
 }
 

@@ -21,6 +21,7 @@ import androidx.core.content.edit
 private val items = mutableListOf<String>() // co widzisz na liście
 private val ids   = mutableListOf<Int>()    // równoległe ID do usuwania
 private var stepcount = 0
+public var taskcountdone = 0;
 
 
 class ScrollTaskActivity : AppCompatActivity(), SensorEventListener {
@@ -74,7 +75,17 @@ class ScrollTaskActivity : AppCompatActivity(), SensorEventListener {
             startActivity(Intent(this, MenuActivity::class.java))
         }
         var mainCheckBoxvar = findViewById<CheckBox>(R.id.checkBox4)
-        findViewById<CheckBox>(R.id.checkBox4).setOnClickListener { }
+        findViewById<CheckBox>(R.id.checkBox4).setOnClickListener {
+            if(mainCheckBoxvar.isChecked() == true){
+                taskcountdone += 1;
+            }
+            else if (taskcountdone == 0){
+                taskcountdone = 0;
+            }
+            else if(mainCheckBoxvar.isChecked() == false && taskcountdone > 0){
+                taskcountdone -= 1;
+            }
+        }
 
         var checkBoxvar = findViewById<CheckBox>(R.id.checkBox)
         findViewById<CheckBox>(R.id.checkBox).setOnClickListener{
