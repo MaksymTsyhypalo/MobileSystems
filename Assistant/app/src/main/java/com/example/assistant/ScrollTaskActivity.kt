@@ -1,5 +1,8 @@
 package com.example.assistant
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
 import android.content.Context.MODE_PRIVATE
 import android.content.Intent
 import android.content.SharedPreferences
@@ -10,18 +13,22 @@ import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.os.Build
 import android.os.Bundle
+import android.service.notification.NotificationListenerService
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.edit
 
 private val items = mutableListOf<String>() // co widzisz na liście
 private val ids   = mutableListOf<Int>()    // równoległe ID do usuwania
 private var stepcount = 0
-public var taskcountdone = 0;
+public var taskcountdone = 0f;
 
 
 class ScrollTaskActivity : AppCompatActivity(), SensorEventListener {
@@ -33,12 +40,42 @@ class ScrollTaskActivity : AppCompatActivity(), SensorEventListener {
     private var previousTotalSteps = 0f
     var currentSteps = 0
 
+    @RequiresApi(Build.VERSION_CODES.O)
 
+    private val Channel_ID = "finish_channel";
+    private val notificationID = 1;
+
+    private fun createNotificationChannel(){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            val name = "Finished step task"
+            val descriptionText = "You have finished your step task!"
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val channel = NotificationChannel(Channel_ID, name, importance).apply {
+                description = descriptionText
+            }
+            val notificationManager : NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+        }
+
+    }
+
+    private fun sendnotification(){
+        val builder = NotificationCompat.Builder(this, Channel_ID).setSmallIcon(R.drawable.notification_icon).setContentTitle("Step task finished").setContentText("You have finished your step task").setPriority(
+            NotificationCompat.PRIORITY_DEFAULT)
+        with (NotificationManagerCompat.from(this)){
+            notify(notificationID,builder.build())
+        }
+    }
+
+
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         db = DBHelper(this)
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.scroll_task)
+
+        createNotificationChannel()
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             if (checkSelfPermission(android.Manifest.permission.ACTIVITY_RECOGNITION) != PackageManager.PERMISSION_GRANTED) {
@@ -79,8 +116,8 @@ class ScrollTaskActivity : AppCompatActivity(), SensorEventListener {
             if(mainCheckBoxvar.isChecked() == true){
                 taskcountdone += 1;
             }
-            else if (taskcountdone == 0){
-                taskcountdone = 0;
+            else if (taskcountdone == 0f){
+                taskcountdone = 0f;
             }
             else if(mainCheckBoxvar.isChecked() == false && taskcountdone > 0){
                 taskcountdone -= 1;
@@ -104,6 +141,7 @@ class ScrollTaskActivity : AppCompatActivity(), SensorEventListener {
                     if(usersteps <= currentSteps){
                         mainCheckBoxvar.isChecked = true
                         Toast.makeText(this, "Task finished!", Toast.LENGTH_LONG).show()
+                        sendnotification()
                     }
                 }
                 catch (n: NumberFormatException){

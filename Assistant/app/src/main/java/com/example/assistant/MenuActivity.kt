@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
 
 class MenuActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.menu_layout)
@@ -28,6 +29,8 @@ class MenuActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btn_garden).setOnClickListener {
             startActivity(Intent(this, GardenActivity::class.java))
         }
-
+        findViewById<Button>(R.id.btn_stats).setOnClickListener {
+            startActivity(Intent(this, StatisticsActivity::class.java))
+        }
     }
 }
