@@ -45,6 +45,7 @@ class ScrollTaskActivity : AppCompatActivity(), SensorEventListener {
     private val Channel_ID = "finish_channel";
     private val notificationID = 1;
 
+
     private fun createNotificationChannel(){
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
             val name = "Finished step task"
@@ -59,27 +60,40 @@ class ScrollTaskActivity : AppCompatActivity(), SensorEventListener {
 
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun sendnotification(){
         val builder = NotificationCompat.Builder(this, Channel_ID).setSmallIcon(R.drawable.notification_icon).setContentTitle("Step task finished").setContentText("You have finished your step task").setPriority(
             NotificationCompat.PRIORITY_DEFAULT)
         with (NotificationManagerCompat.from(this)){
-            notify(notificationID,builder.build())
+            try {
+                notify(notificationID, builder.build())
+            }
+            catch (e: SecurityException){
+
+            }
         }
     }
 
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
-        db = DBHelper(this)
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.scroll_task)
+        val ErrorText = findViewById<TextView>(R.id.ErrorView)
+        db = DBHelper(this)
 
         createNotificationChannel()
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             if (checkSelfPermission(android.Manifest.permission.ACTIVITY_RECOGNITION) != PackageManager.PERMISSION_GRANTED) {
                 requestPermissions(arrayOf(android.Manifest.permission.ACTIVITY_RECOGNITION), 100)
+            }
+        }
+
+        if (Build.VERSION.SDK_INT >= 33) {
+            if (checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(arrayOf(android.Manifest.permission.POST_NOTIFICATIONS), 101)
             }
         }
 
@@ -92,7 +106,6 @@ class ScrollTaskActivity : AppCompatActivity(), SensorEventListener {
 
         loadData()
 
-        val ErrorText = findViewById<TextView>(R.id.ErrorView)
 
         val taskTitle = intent.getStringExtra("Task_Title")
         val taskDesc = intent.getStringExtra("Task_Description")
@@ -156,7 +169,11 @@ class ScrollTaskActivity : AppCompatActivity(), SensorEventListener {
             startActivity(Intent(this, ScrollDayActivity::class.java))
         }
 
+        findViewById<Button>(R.id.button3).setOnClickListener {
+            startActivity(Intent(this, ScrollDayActivity::class.java))
+        }
     }
+
     override fun onStart() {
         super.onStart()
         registerSensor()

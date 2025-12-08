@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "823344871968",
+    "project_id": "cfassistantmobilesystems",
+    "storage_bucket": "cfassistantmobilesystems.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:823344871968:android:4a632a12068e213760da45",
+        "android_client_info": {
+          "package_name": "com.example.assistant"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-64Rftm5KpPK_-VLC1U9pxAmazQJOwTk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

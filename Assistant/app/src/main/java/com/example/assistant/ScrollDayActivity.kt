@@ -4,6 +4,7 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.widget.*
@@ -25,15 +26,10 @@ class ScrollDayActivity : AppCompatActivity() {
     private val Channel_ID = "day_channel";
     private val notificationID = 1;
 
-    val etTitle = findViewById<EditText>(R.id.etTaskTitle)
-    val etDesc  = findViewById<EditText>(R.id.etTaskDesc)
-    val btnAdd  = findViewById<Button>(R.id.btnAddTask)
-    val list    = findViewById<ListView>(R.id.listTasks)
-
     private fun createNotificationChannel(){
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
             val name = "Task created"
-            val descriptionText = "You have created new task! Task name: " + etTitle.toString();
+            val descriptionText = "You have created new task!"
             val importance = NotificationManager.IMPORTANCE_DEFAULT
             val channel = NotificationChannel(Channel_ID, name, importance).apply {
                 description = descriptionText
@@ -45,17 +41,32 @@ class ScrollDayActivity : AppCompatActivity() {
     }
 
     private fun sendnotification(){
-        val builder = NotificationCompat.Builder(this, Channel_ID).setSmallIcon(R.drawable.notification_icon).setContentTitle("Step task finished").setContentText("You have finished your step task").setPriority(
+        val builder = NotificationCompat.Builder(this, Channel_ID).setSmallIcon(R.drawable.notification_icon).setContentTitle("Task created").setContentText("You have created new task!").setPriority(
             NotificationCompat.PRIORITY_DEFAULT)
         with (NotificationManagerCompat.from(this)){
-            notify(notificationID,builder.build())
+            try {
+                notify(notificationID, builder.build())
+            }
+            catch (e: SecurityException){
+
+            }
         }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.scroll_day)
+        if (Build.VERSION.SDK_INT >= 33) {
+            if (checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(arrayOf(android.Manifest.permission.POST_NOTIFICATIONS), 101)
+            }
+        }
         createNotificationChannel()
+
+        val etTitle = findViewById<EditText>(R.id.etTaskTitle)
+        val etDesc  = findViewById<EditText>(R.id.etTaskDesc)
+        val btnAdd  = findViewById<Button>(R.id.btnAddTask)
+        val list    = findViewById<ListView>(R.id.listTasks)
 
         db = DBHelper(this)
 

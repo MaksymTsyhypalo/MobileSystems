@@ -23,6 +23,7 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".LoginActivity" />
         <activity android:name=".ScrollDayActivity" />
         <activity android:name=".ScrollWeekActivity" />
         <activity android:name=".ScrollTaskActivity" />
