@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#4CAF50"
+    android:background="#FFFFFF"
     android:fillViewport="true"
     tools:context=".YourActivityName">
 
@@ -43,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="1 TASK OF THE DAY"
-            android:textColor="#FFFFFF"
+            android:textColor="#000000"
             android:textSize="34sp"
             android:textStyle="bold|italic" />
 
@@ -112,7 +112,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="Step Task?"
-            android:textColor="#F4F1F1"
+            android:textColor="#000000"
             android:textSize="24sp"
             android:textStyle="bold|italic" />
 
@@ -122,7 +122,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="APPROVE TASK"
-            android:textColor="#F4F1F1"
+            android:textColor="#000000"
             android:textSize="24sp"
             android:textStyle="bold|italic" />
 
@@ -136,19 +136,20 @@
                 android:layout_width="99dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:backgroundTint="#FAF4F4"
+                android:backgroundTint="#4CAF50"
                 android:text="SAVE"
-                android:textColor="#316D34"
+                android:textColor="#FFFFFF"
                 android:textStyle="bold|italic" />
 
             <Button
                 android:id="@+id/button3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+				android:layout_marginStart="80dp"
                 android:layout_marginTop="20dp"
-                android:backgroundTint="#FAF4F4"
+                android:backgroundTint="#4CAF50"
                 android:text="GO TO THE DAY VIEW"
-                android:textColor="#316D34"
+                android:textColor="#FFFFFF"
                 android:textStyle="bold|italic" />
 
         </LinearLayout>

@@ -26,7 +26,7 @@ class ScrollDayActivity : AppCompatActivity() {
     private val ids   = mutableListOf<Int>()    // równoległe ID do usuwania
     private val taskTitles = mutableListOf<String>()
     private val taskDescriptions = mutableListOf<String>()
-    private val dayKey = "today"
+    private val dayKey = "Monday"
     private val Channel_ID = "day_channel";
     private val notificationID = 1;
 
@@ -73,11 +73,6 @@ class ScrollDayActivity : AppCompatActivity() {
         val list    = findViewById<ListView>(R.id.listTasks)
 
         db = DBHelper(this)
-        val task = hashMapOf(
-            "title" to etTitle,
-            "description" to etDesc,
-            "day" to "Monday"
-        )
 
         findViewById<Button>(R.id.btn_menu).setOnClickListener {
             startActivity(Intent(this, MenuActivity::class.java))
@@ -97,24 +92,29 @@ class ScrollDayActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
             db.addTask("$t", "$d", "Monday")
+            etTitle.text.clear(); etDesc.text.clear()
+            refreshList()
+            taskcount += 1
+            sendnotification()
+
+            val task = hashMapOf(
+                "title" to t,
+                "description" to d,
+                "day" to "Monday"
+            )
             dbf.collection("tasks").add(task).addOnSuccessListener { documentReference ->
-                Log.d("Added", "Task added")
+                Log.d("Added", "Task added to Firestore with ID: ${documentReference.id}")
             }
                 .addOnFailureListener { e ->
                     Log.w("Error adding task", e)
+                    Toast.makeText(this, "Task saved locally but failed to save to cloud.", Toast.LENGTH_LONG).show()
                 }
-            etTitle.text.clear(); etDesc.text.clear()
-            refreshList()
-            taskcount += 1;
         }
 
         // Usuwanie (long press)
         list.setOnItemLongClickListener { _, _, position, _ ->
             val id = ids[position]
             db.deleteTask(id)
-            val ref = dbf.collection("tasks").document()
-            ref.update("title", FieldValue.delete())
-            ref.update("desription", FieldValue.delete())
             if(taskcount > 0){taskcount -= 1;}
             Toast.makeText(this, "Deleted task #$id", Toast.LENGTH_SHORT).show()
             refreshList()
@@ -124,8 +124,8 @@ class ScrollDayActivity : AppCompatActivity() {
         list.setOnItemClickListener { _, _, position, _ ->
             val id = ids[position]
 
-            val taskTitle: String = taskTitles[position]
-            val taskDesc: String = taskDescriptions[position]
+            val taskTitle: String = taskTitles[position] ?: ""
+            val taskDesc: String = taskDescriptions[position] ?: ""
 
             Toast.makeText(this, "Editing task #$id", Toast.LENGTH_SHORT).show()
             sendnotification()

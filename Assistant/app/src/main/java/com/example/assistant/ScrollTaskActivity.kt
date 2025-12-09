@@ -14,6 +14,7 @@ import android.hardware.SensorEventListener
 import android.os.Build
 import android.os.Bundle
 import android.service.notification.NotificationListenerService
+import android.util.Log
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
@@ -126,7 +127,9 @@ class ScrollTaskActivity : AppCompatActivity(), SensorEventListener {
         if (taskDesc != null){etext.setText(taskDesc);}
 
         db.addTask("$taskTitle", "$taskDesc", "Monday")
-        dbf.collection("tasks").add("task")
+        dbf.collection("tasks").add(task).addOnFailureListener { e ->
+            Log.e("ScrollTaskActivity", "Firestore error on task detail view save", e)
+        }
 
         val intent1 = Intent(this, ScrollDayActivity::class.java)
         intent1.putExtra("Task_Title", taskTitle)
@@ -208,11 +211,19 @@ class ScrollTaskActivity : AppCompatActivity(), SensorEventListener {
 
     override fun onSensorChanged(event: SensorEvent?) {
         if (event == null) return
+        val dtext = findViewById<EditText>(R.id.edittextdesc)
 
         // update step count
         if (running) {
             totalSteps = event.values[0]
             currentSteps = (totalSteps - previousTotalSteps).toInt()
+            val taskDesc = intent.getStringExtra("Task_Description")
+            if(taskDesc != null && taskDesc.toIntOrNull() != null){
+                dtext.setText("$currentSteps / ${taskDesc.toInt()} steps talen")
+            }
+            else {
+                dtext.setText(taskDesc)
+            }
         }
     }
 
