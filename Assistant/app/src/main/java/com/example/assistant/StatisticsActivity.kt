@@ -5,10 +5,12 @@ import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
-import com.github.mikephil.charting.charts.BarChart
-import com.github.mikephil.charting.data.BarData
+import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
+import com.github.mikephil.charting.data.PieData
+import com.github.mikephil.charting.data.PieDataSet
+import com.github.mikephil.charting.data.PieEntry
 
 var taskcountother = taskcount
 
@@ -16,43 +18,43 @@ var taskcountdoneother = taskcountdone
 
 
 class StatisticsActivity : AppCompatActivity() {
-    lateinit var barChart: BarChart
-    lateinit var barData: BarData
-    lateinit var barDataSet: BarDataSet
-    lateinit var barEntriesList: ArrayList<BarEntry>
+    lateinit var pieChart: PieChart
+    lateinit var pieData: PieData
+    lateinit var pieDataSet: PieDataSet
+    lateinit var pieEntriesList: ArrayList<PieEntry>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.statistics)
 
-        barChart = findViewById(R.id.my_bar_chart)
+        pieChart = findViewById(R.id.my_pie_chart)
 
         setupChartData()
 
-        barDataSet = BarDataSet(barEntriesList, "Task Chart Data")
+        pieDataSet = PieDataSet(pieEntriesList, "Task Chart Data")
 
-        barData = BarData(barDataSet)
+        pieData = PieData(pieDataSet)
 
-        barChart.data = barData
+        pieChart.data = pieData
 
-        barDataSet.valueTextColor = Color.BLACK
+        pieDataSet.valueTextColor = Color.BLACK
 
-        barDataSet.setColor(Color.GREEN)
+        pieDataSet.setColor(Color.GREEN)
 
-        barDataSet.valueTextSize = 14f
+        pieDataSet.valueTextSize = 14f
 
-        barChart.description.isEnabled = false
+        pieChart.description.isEnabled = false
 
 
     }
 
     fun setupChartData(){
-        barEntriesList = ArrayList()
+        pieEntriesList = ArrayList()
 
-        barEntriesList.add(BarEntry(1f, taskcountdoneother))
+        pieEntriesList.add(PieEntry(1f, taskcountdoneother))
 
-        barEntriesList.add(BarEntry(2f, taskcountother))
+        pieEntriesList.add(PieEntry(2f, taskcountother))
     }
 }
 

@@ -7,15 +7,19 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import com.google.firebase.Firebase
+import com.google.firebase.firestore.FieldValue
+import com.google.firebase.firestore.firestore
 
 var taskcount = 0f;
 
 class ScrollDayActivity : AppCompatActivity() {
-
+    val dbf = Firebase.firestore
     private lateinit var db: DBHelper
     private lateinit var adapter: ArrayAdapter<String>
     private val items = mutableListOf<String>() // co widzisz na liście
@@ -69,15 +73,15 @@ class ScrollDayActivity : AppCompatActivity() {
         val list    = findViewById<ListView>(R.id.listTasks)
 
         db = DBHelper(this)
+        val task = hashMapOf(
+            "title" to etTitle,
+            "description" to etDesc,
+            "day" to "Monday"
+        )
 
         findViewById<Button>(R.id.btn_menu).setOnClickListener {
             startActivity(Intent(this, MenuActivity::class.java))
         }
-
-            //val etTitle = findViewById<EditText>(R.id.etTaskTitle)
-        //val etDesc  = findViewById<EditText>(R.id.etTaskDesc)
-        //val btnAdd  = findViewById<Button>(R.id.btnAddTask)
-        //val list    = findViewById<ListView>(R.id.listTasks)
 
         adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, items)
         list.adapter = adapter
@@ -92,7 +96,13 @@ class ScrollDayActivity : AppCompatActivity() {
                 Toast.makeText(this, "Title is required", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            db.addTask(t, d, dayKey)
+            db.addTask("$t", "$d", "Monday")
+            dbf.collection("tasks").add(task).addOnSuccessListener { documentReference ->
+                Log.d("Added", "Task added")
+            }
+                .addOnFailureListener { e ->
+                    Log.w("Error adding task", e)
+                }
             etTitle.text.clear(); etDesc.text.clear()
             refreshList()
             taskcount += 1;
@@ -102,6 +112,9 @@ class ScrollDayActivity : AppCompatActivity() {
         list.setOnItemLongClickListener { _, _, position, _ ->
             val id = ids[position]
             db.deleteTask(id)
+            val ref = dbf.collection("tasks").document()
+            ref.update("title", FieldValue.delete())
+            ref.update("desription", FieldValue.delete())
             if(taskcount > 0){taskcount -= 1;}
             Toast.makeText(this, "Deleted task #$id", Toast.LENGTH_SHORT).show()
             refreshList()

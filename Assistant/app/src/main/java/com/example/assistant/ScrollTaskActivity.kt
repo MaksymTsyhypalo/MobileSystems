@@ -24,6 +24,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.edit
+import com.google.firebase.Firebase
+import com.google.firebase.firestore.firestore
 
 private val items = mutableListOf<String>() // co widzisz na liście
 private val ids   = mutableListOf<Int>()    // równoległe ID do usuwania
@@ -32,6 +34,7 @@ public var taskcountdone = 0f;
 
 
 class ScrollTaskActivity : AppCompatActivity(), SensorEventListener {
+    val dbf = Firebase.firestore
     private lateinit var db: DBHelper
     private lateinit var sensorManager: SensorManager
     private var stepSensor: Sensor? = null
@@ -112,9 +115,18 @@ class ScrollTaskActivity : AppCompatActivity(), SensorEventListener {
         val etext = findViewById<EditText>(R.id.edit1);
         val dtext = findViewById<EditText>(R.id.edittextdesc);
 
+        val task = hashMapOf(
+            "title" to taskTitle,
+            "description" to taskDesc,
+            "day" to "Monday"
+        )
+
         if (taskTitle != null){
             dtext.setText(taskTitle);}
         if (taskDesc != null){etext.setText(taskDesc);}
+
+        db.addTask("$taskTitle", "$taskDesc", "Monday")
+        dbf.collection("tasks").add("task")
 
         val intent1 = Intent(this, ScrollDayActivity::class.java)
         intent1.putExtra("Task_Title", taskTitle)
