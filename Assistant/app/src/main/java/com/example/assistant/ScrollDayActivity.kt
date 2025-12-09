@@ -78,6 +78,10 @@ class ScrollDayActivity : AppCompatActivity() {
             startActivity(Intent(this, MenuActivity::class.java))
         }
 
+        findViewById<Button>(R.id.filter_button).setOnClickListener {
+            filterList()
+        }
+
         adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, items)
         list.adapter = adapter
 
@@ -143,6 +147,20 @@ class ScrollDayActivity : AppCompatActivity() {
         items.clear(); ids.clear();
         taskTitles.clear()
         taskDescriptions.clear()
+        data.forEach { t ->
+            ids += t.id
+            items += "${t.id} · ${t.title}" + if (t.description.isNotBlank()) " — ${t.description}" else ""
+            taskTitles += t.title
+            taskDescriptions += t.description
+        }
+        adapter.notifyDataSetChanged()
+    }
+    private fun filterList() {
+        var data = db.getTasksForDay(dayKey)
+        items.clear(); ids.clear();
+        taskTitles.clear()
+        taskDescriptions.clear()
+        data = data.sortedByDescending { it.title }
         data.forEach { t ->
             ids += t.id
             items += "${t.id} · ${t.title}" + if (t.description.isNotBlank()) " — ${t.description}" else ""

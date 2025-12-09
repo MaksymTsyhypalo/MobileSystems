@@ -126,11 +126,6 @@ class ScrollTaskActivity : AppCompatActivity(), SensorEventListener {
             dtext.setText(taskTitle);}
         if (taskDesc != null){etext.setText(taskDesc);}
 
-        db.addTask("$taskTitle", "$taskDesc", "Monday")
-        dbf.collection("tasks").add(task).addOnFailureListener { e ->
-            Log.e("ScrollTaskActivity", "Firestore error on task detail view save", e)
-        }
-
         val intent1 = Intent(this, ScrollDayActivity::class.java)
         intent1.putExtra("Task_Title", taskTitle)
         intent1.putExtra("Task_Description", taskDesc)
