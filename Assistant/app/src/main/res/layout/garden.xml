@@ -36,16 +36,94 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <!-- The big garden/minigame visualization fills the rest -->
-    <ImageView
-        android:id="@+id/imageView15"
+    <!-- The big garden/minigame visualization fills the rest -->
+    <FrameLayout
+        android:id="@+id/gardenLayer"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/minigame_visualization"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView21" />
+        app:layout_constraintTop_toBottomOf="@id/imageView21">
+
+        <!-- Tło ogrodu -->
+        <ImageView
+            android:id="@+id/gardenBackground"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/minigame_visualisation" />
+        <LinearLayout
+            android:id="@+id/placeControls"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:visibility="gone"
+            android:padding="8dp">
+
+            <!-- ↑ dokładnie nad PLACE -->
+            <Button
+                android:id="@+id/btnUp"
+                android:layout_width="120dp"
+                android:layout_height="48dp"
+                android:backgroundTint="#4CAF50"
+                android:textColor="#FFFFFF"
+                android:text="↑" />
+
+            <!-- ←  PLACE  → -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp">
+
+                <Button
+                    android:id="@+id/btnLeft"
+                    android:layout_width="64dp"
+                    android:layout_height="48dp"
+                    android:backgroundTint="#4CAF50"
+                    android:textColor="#FFFFFF"
+                    android:text="←" />
+
+                <Button
+                    android:id="@+id/btnPlace"
+                    android:layout_width="120dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginEnd="6dp"
+                    android:backgroundTint="#4CAF50"
+                    android:textColor="#FFFFFF"
+                    android:text="PLACE" />
+
+                <Button
+                    android:id="@+id/btnRight"
+                    android:layout_width="64dp"
+                    android:layout_height="48dp"
+                    android:backgroundTint="#4CAF50"
+                    android:textColor="#FFFFFF"
+                    android:text="→" />
+            </LinearLayout>
+
+            <!-- ↓ dokładnie pod PLACE -->
+            <Button
+                android:id="@+id/btnDown"
+                android:layout_width="120dp"
+                android:layout_height="48dp"
+                android:backgroundTint="#4CAF50"
+                android:textColor="#FFFFFF"
+                android:text="↓" />
+        </LinearLayout>
+
+
+
+
+    </FrameLayout>
+
 
     <Button
         android:id="@+id/shopbutton"
