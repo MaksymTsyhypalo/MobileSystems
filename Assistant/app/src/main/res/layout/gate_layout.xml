@@ -7,8 +7,8 @@
 
     <LinearLayout
         android:layout_width="409dp"
-        android:layout_height="407dp"
-        android:layout_marginTop="317dp"
+        android:layout_height="207dp"
+        android:layout_marginTop="250dp"
         android:layout_marginEnd="1dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -23,21 +23,24 @@
             android:text="WELCOME TO CF ASSISTANT!"
             android:textAlignment="center"
             android:textSize="32sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:padding="10dp"/>
 
         <Button
             android:id="@+id/reg_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#4CAF50"
-            android:text="Register" />
+            android:text="Register"
+            android:padding="10dp" />
 
         <Button
             android:id="@+id/log_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#4CAF50"
-            android:text="Login" />
+            android:text="Login"
+            android:padding="10dp"/>
 
     </LinearLayout>
 

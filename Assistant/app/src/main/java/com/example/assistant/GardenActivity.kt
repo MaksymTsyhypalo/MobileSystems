@@ -1,19 +1,26 @@
 package com.example.assistant
 
+import android.content.ClipData
+import android.content.ClipDescription
 import android.content.Intent
+import android.graphics.Bitmap
+import android.os.Build
 import android.os.Bundle
+import android.view.DragEvent
 import android.view.View
 import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import kotlin.math.max
 import kotlin.math.min
 
 class GardenActivity : AppCompatActivity() {
 
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.garden)
@@ -54,6 +61,7 @@ class GardenActivity : AppCompatActivity() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     private fun startPlacement(layer: FrameLayout, store: GameStore, type: String) {
         val controls = findViewById<LinearLayout>(R.id.placeControls)
         controls.visibility = View.VISIBLE
@@ -106,8 +114,91 @@ class GardenActivity : AppCompatActivity() {
             applyPos()
         }
 
+        // Create a string for the ImageView label.
+        val IMAGEVIEW_TAG = "icon bitmap"
+        val iconBitmap: Bitmap? = intent.getParcelableExtra("Bitmap", Bitmap::class.java)
+        val imageView = ImageView(this).apply {
+            // Set the bitmap for the ImageView from an icon bitmap defined elsewhere.
+            setImageBitmap(iconBitmap)
+            tag = IMAGEVIEW_TAG
+            setOnLongClickListener { v ->
+                // Create a new ClipData. This is done in two steps to provide
+                // clarity. The convenience method ClipData.newPlainText() can
+                // create a plain text ClipData in one step.
+
+                // Create a new ClipData.Item from the ImageView object's tag.
+                val item = ClipData.Item(v.tag as? CharSequence)
+
+                // Create a new ClipData using the tag as a label, the plain text
+                // MIME type, and the already-created item. This creates a new
+                // ClipDescription object within the ClipData and sets its MIME type
+                // to "text/plain".
+                val dragData = ClipData(
+                    v.tag as? CharSequence,
+                    arrayOf(ClipDescription.MIMETYPE_TEXT_PLAIN),
+                    item)
+
+                // Instantiate the drag shadow builder. We use this imageView object
+                // to create the default builder.
+                val myShadow = View.DragShadowBuilder(this)
+
+                // Start the drag.
+                v.startDragAndDrop(dragData,  // The data to be dragged.
+                    myShadow,  // The drag shadow builder.
+                    null,      // No need to use local data.
+                    0          // Flags. Not currently used, set to 0.
+                )
+
+                v.visibility = View.VISIBLE
+                // Indicate that the long-click is handled.
+                true
+
+
+            }
+        }
+
+        val dragListener = View.OnDragListener{ view, event ->
+            val receiverView = view as FrameLayout
+            when(event.action){
+                DragEvent.ACTION_DROP -> {
+                    val dropX = event.x;
+                    val dropY = event.y;
+
+                    val offset = size/2;
+                    var finalX = (dropX - offset).toInt()
+                    var finalY = (dropY - offset).toInt()
+
+                    val maxX = max(0,receiverView.width - size)
+                    val maxY = max(0,receiverView.height - size)
+
+                    finalX = (min(max(finalX,0), maxX) / grid) * grid;
+                    finalY = (min(max(finalY,0), maxY) / grid) * grid;
+                    store.addPlacedItem(GardenItem(type = type, x = finalX, y = finalY))
+
+                    renderPlaced(layer, store)
+                    moving.visibility = View.GONE
+
+                    findViewById<LinearLayout>(R.id.placeControls).visibility = View.GONE
+                    Toast.makeText(this, "Placed: $type" + " at $finalX, $finalY", Toast.LENGTH_SHORT).show()
+                true
+                }
+                else -> true
+                }
+            }
+        layer.setOnDragListener(dragListener)
+        moving.setOnLongClickListener { v ->
+            val data = ClipData.newPlainText("type", type)
+            val shadow = View.DragShadowBuilder(v)
+            v.startDragAndDrop(data, shadow, null, 0)
+
+            v.visibility = View.INVISIBLE
+            true
+        }
+        }
+
+
         // Sterowanie przyciskami (skok o 1 kratkę)
-        findViewById<Button>(R.id.btnLeft).setOnClickListener { x -= grid; applyPos() }
+            /*findViewById<Button>(R.id.btnLeft).setOnClickListener { x -= grid; applyPos() }
         findViewById<Button>(R.id.btnRight).setOnClickListener { x += grid; applyPos() }
         findViewById<Button>(R.id.btnUp).setOnClickListener { y -= grid; applyPos() }
         findViewById<Button>(R.id.btnDown).setOnClickListener { y += grid; applyPos() }
@@ -120,7 +211,7 @@ class GardenActivity : AppCompatActivity() {
             controls.visibility = View.GONE
             // żeby nie odpalać placement mode ponownie po back/rotacji
             intent.removeExtra("PENDING_TYPE")
-        }
+        }*/
     }
 
     private fun drawableForType(type: String): Int {
@@ -129,4 +220,3 @@ class GardenActivity : AppCompatActivity() {
             else -> R.drawable.house
         }
     }
-}
