@@ -12,6 +12,7 @@ import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -22,6 +23,7 @@ class GardenActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.garden)
 
@@ -34,6 +36,13 @@ class GardenActivity : AppCompatActivity() {
 
         val layer = findViewById<FrameLayout>(R.id.gardenLayer)
         val store = GameStore(this)
+
+        val coinDisplay = findViewById<TextView>(R.id.textcoins)
+        fun refreshcoins(){
+            coinDisplay.text = "${store.getCoins()} TASKCOINS"
+        }
+
+        refreshcoins()
 
         // 1) Render już postawionych itemów
         renderPlaced(layer, store)
@@ -63,8 +72,6 @@ class GardenActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     private fun startPlacement(layer: FrameLayout, store: GameStore, type: String) {
-        val controls = findViewById<LinearLayout>(R.id.placeControls)
-        controls.visibility = View.VISIBLE
 
         // Ruchomy podgląd obiektu (jeszcze nie zapisany)
         val moving = ImageView(this)
@@ -136,14 +143,16 @@ class GardenActivity : AppCompatActivity() {
                 val dragData = ClipData(
                     v.tag as? CharSequence,
                     arrayOf(ClipDescription.MIMETYPE_TEXT_PLAIN),
-                    item)
+                    item
+                )
 
                 // Instantiate the drag shadow builder. We use this imageView object
                 // to create the default builder.
                 val myShadow = View.DragShadowBuilder(this)
 
                 // Start the drag.
-                v.startDragAndDrop(dragData,  // The data to be dragged.
+                v.startDragAndDrop(
+                    dragData,  // The data to be dragged.
                     myShadow,  // The drag shadow builder.
                     null,      // No need to use local data.
                     0          // Flags. Not currently used, set to 0.
@@ -157,34 +166,38 @@ class GardenActivity : AppCompatActivity() {
             }
         }
 
-        val dragListener = View.OnDragListener{ view, event ->
+        val dragListener = View.OnDragListener { view, event ->
             val receiverView = view as FrameLayout
-            when(event.action){
+            when (event.action) {
                 DragEvent.ACTION_DROP -> {
                     val dropX = event.x;
                     val dropY = event.y;
 
-                    val offset = size/2;
+                    val offset = size / 2;
                     var finalX = (dropX - offset).toInt()
                     var finalY = (dropY - offset).toInt()
 
-                    val maxX = max(0,receiverView.width - size)
-                    val maxY = max(0,receiverView.height - size)
+                    val maxX = max(0, receiverView.width - size)
+                    val maxY = max(0, receiverView.height - size)
 
-                    finalX = (min(max(finalX,0), maxX) / grid) * grid;
-                    finalY = (min(max(finalY,0), maxY) / grid) * grid;
+                    finalX = (min(max(finalX, 0), maxX) / grid) * grid;
+                    finalY = (min(max(finalY, 0), maxY) / grid) * grid;
                     store.addPlacedItem(GardenItem(type = type, x = finalX, y = finalY))
 
                     renderPlaced(layer, store)
                     moving.visibility = View.GONE
 
-                    findViewById<LinearLayout>(R.id.placeControls).visibility = View.GONE
-                    Toast.makeText(this, "Placed: $type" + " at $finalX, $finalY", Toast.LENGTH_SHORT).show()
-                true
+                    Toast.makeText(
+                        this,
+                        "Placed: $type" + " at $finalX, $finalY",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    true
                 }
+
                 else -> true
-                }
             }
+        }
         layer.setOnDragListener(dragListener)
         moving.setOnLongClickListener { v ->
             val data = ClipData.newPlainText("type", type)
@@ -194,29 +207,15 @@ class GardenActivity : AppCompatActivity() {
             v.visibility = View.INVISIBLE
             true
         }
-        }
-
-
-        // Sterowanie przyciskami (skok o 1 kratkę)
-            /*findViewById<Button>(R.id.btnLeft).setOnClickListener { x -= grid; applyPos() }
-        findViewById<Button>(R.id.btnRight).setOnClickListener { x += grid; applyPos() }
-        findViewById<Button>(R.id.btnUp).setOnClickListener { y -= grid; applyPos() }
-        findViewById<Button>(R.id.btnDown).setOnClickListener { y += grid; applyPos() }
-
-        // Zatwierdzenie ustawienia
-        findViewById<Button>(R.id.btnPlace).setOnClickListener {
-            store.addPlacedItem(GardenItem(type = type, x = x, y = y))
-            Toast.makeText(this, "Placed: $type", Toast.LENGTH_SHORT).show()
-
-            controls.visibility = View.GONE
-            // żeby nie odpalać placement mode ponownie po back/rotacji
-            intent.removeExtra("PENDING_TYPE")
-        }*/
     }
 
     private fun drawableForType(type: String): Int {
         return when (type) {
             "house" -> R.drawable.house
+            "rose" -> R.drawable.rose
+            "statue" -> R.drawable.statue
+            "fountain" -> R.drawable.fountain
             else -> R.drawable.house
         }
     }
+}

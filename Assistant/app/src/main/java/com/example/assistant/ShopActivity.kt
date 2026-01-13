@@ -58,7 +58,7 @@ class ShopActivity : AppCompatActivity() {
 
         //PLACEHOLDERS 1,2,3 FOR NEW ELEMENTS:
         findViewById<Button>(R.id.button11).setOnClickListener {
-            val cost = 15
+            val cost = 10
             val coins = store.getCoins()
 
             if (coins < cost) {
@@ -70,12 +70,12 @@ class ShopActivity : AppCompatActivity() {
             store.setCoins(coins - cost)
             refreshCoins()
 
-            Toast.makeText(this, "Bought: house! Place it in garden.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Bought: rose! Place it in garden.", Toast.LENGTH_SHORT).show()
 
-            val House = findViewById<ImageView>(R.id.House)
+            val Rose = findViewById<ImageView>(R.id.Rose)
             // zamiast od razu zapisywać pozycję -> przejdź do ogrodu w trybie ustawiania
             val i = Intent(this, GardenActivity::class.java)
-            i.putExtra("PENDING_TYPE", "house")
+            i.putExtra("PENDING_TYPE", "rose")
 
             startActivity(i)
 
@@ -93,12 +93,12 @@ class ShopActivity : AppCompatActivity() {
             store.setCoins(coins - cost)
             refreshCoins()
 
-            Toast.makeText(this, "Bought: house! Place it in garden.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Bought: statue! Place it in garden.", Toast.LENGTH_SHORT).show()
 
-            val House = findViewById<ImageView>(R.id.House)
+            val Statue = findViewById<ImageView>(R.id.Statue)
             // zamiast od razu zapisywać pozycję -> przejdź do ogrodu w trybie ustawiania
             val i = Intent(this, GardenActivity::class.java)
-            i.putExtra("PENDING_TYPE", "house")
+            i.putExtra("PENDING_TYPE", "statue")
 
             startActivity(i)
 
@@ -116,12 +116,12 @@ class ShopActivity : AppCompatActivity() {
             store.setCoins(coins - cost)
             refreshCoins()
 
-            Toast.makeText(this, "Bought: house! Place it in garden.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Bought: fountain! Place it in garden.", Toast.LENGTH_SHORT).show()
 
-            val House = findViewById<ImageView>(R.id.House)
+            val Fountain = findViewById<ImageView>(R.id.Fountain)
             // zamiast od razu zapisywać pozycję -> przejdź do ogrodu w trybie ustawiania
             val i = Intent(this, GardenActivity::class.java)
-            i.putExtra("PENDING_TYPE", "house")
+            i.putExtra("PENDING_TYPE", "fountain")
 
             startActivity(i)
 
